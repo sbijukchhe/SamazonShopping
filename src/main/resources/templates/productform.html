@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:sec1="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:w3="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/Style.css" type="text/css">
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+    <title>Product Form</title>
+</head>
+
+<body>
+
+<!--Navbar-->
+<div th:insert="base :: navbar"></div>
+<br><br><br>
+<!-- END nav -->
+
+<div id = "alert1" class="container">
+    <div class="row">
+        <div class="col">
+
+            <div class="alert alert text-center" style="background-color: beige" role="success">
+                <h1>Product Form</h1>
+            </div>
+
+            <form th:action="@{/processproduct}" th:object="${product}" method="post">
+
+                <fieldset>
+                    <div class="form-col" style="padding-left: 33%">
+                        <div class="col-7">
+                            <input type="hidden" th:field="*{productId}" />
+                        </div><br>
+
+                        <div class="col-7">
+                            <input type="text" class="form-control" placeholder="Name" th:field="*{name}">
+                        </div><br>
+                        <div class="col-7">
+                            <textarea placeholder="Description" class="form-control" th:field="*{description}">
+                            </textarea>
+                        </div><br>
+<!--                        <div class="col-7">-->
+<!--                            <input type="datetime-local" class="form-control" name="date" >-->
+<!--                        </div><br>-->
+                        <div class="col-7">
+                            <input type="text" class="form-control"  placeholder="Price"
+                                   th:field="*{price}">
+                        </div><br>
+                        <div class="col-7">
+                            <input type="text" class="form-control" placeholder="Image URL" th:field="*{imageURL}">
+                        </div><br>
+
+                        <div class="col-7">
+                        <input type="text" class="form-control" placeholder="Active" th:field="*{active}">
+                    </div><br>
+                    </div>
+                    <div id ="alert" style="padding-left: 62%">
+                        <button type="submit" onclick="myFunction()" class="btn btn-success">Add a product</button>
+                    </div>
+                </fieldset>
+            </form>
+
+
+        </div>
+    </div>
+</div>
+
+<!--JavaScript alert!!!-->
+<script th:src="@{js/alert.js}"></script>
+<!--<script type="text/javascript" src="js/alert.js"></script>-->
+
+<br><br><br><br><br><br>
+<!--Footer-->
+<div th:insert="base :: footer"></div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</html>

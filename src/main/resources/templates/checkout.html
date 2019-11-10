@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+    <title>Cart List</title>
+</head>
+<body>
+
+
+<!--Navbar-->
+<div th:insert="base :: navbar"></div>
+<br/>
+
+<br>
+
+
+<div class="container">
+
+    <h1 class="jumbotron">
+        <span sec:authentication="name"></span>'s Shopping Cart
+    </h1>
+
+    <div class="alert alert-info" th:if="${outOfStockMessage}" th:utext="${outOfStockMessage}"></div>
+
+    <div class="panel-default well" th:each="product : ${products.entrySet()}">
+        <div class="panel-heading">
+            <h1><a th:text="${product.getKey().name}" th:href="@{'/product/' + ${product.getKey().productId}}">Title</a></h1>
+            <h3 th:text="${product.getKey().description}">Description</h3>
+        </div>
+        <div class="row panel-body">
+            <div th:inline="text" class="col-md-2">Price: $ [[${product.getKey().price}]] </div>
+            <div th:inline="text" class="col-md-9">Quantity: [[${product.getValue()}]]</div>
+            <a th:href="@{/removeProduct/{id}(id=${product.getKey().productId})}" class="col-md-1">
+                <button type="button" class="btn btn-success" th:text="Remove">Remove</button>
+            </a>
+        </div>
+        <br></br>
+    </div>
+
+    <div class="row panel-body">
+        <h4 class="col-md-11" th:inline="text">Total: $ [[${total}]]</h4>
+        <h4 class="col-md-11" th:inline="text">Shipping cost: $ [[${shippingCost}]]</h4>
+        <h2 class="col-md-11" th:inline="text">Grand Total: $ [[${grandTotal}]]</h2>
+        <a th:href="@{/checkout}" class="col-md-1">
+            <button type="button" class="btn btn-danger" th:text="Checkout">Checkout</button>
+        </a>
+    </div>
+
+</div>
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div th:insert="base :: footer"></div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

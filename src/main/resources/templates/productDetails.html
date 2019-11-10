@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:sec1="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:w3="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <title>Product Detail</title>
+</head>
+<body>
+<!--Navbar-->
+<div th:insert="base :: navbar"></div>
+<br><br><br>
+<!-- END nav -->
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="alert alert text-center" style="background-color: beige" role="alert">
+                <h2>Product Details</h2>
+            </div>
+
+            <!--            <a href="/">Show All Products</a><br>-->
+            <a href="/list" type="button" class="btn btn-outline-success">All products</a><br><br>
+
+            Name: <span th:text="${product.name}"></span><br>
+            Description: <span th:text="${product.description}"></span><br>
+<!--            Posted Date: <span th:text="${#dates.format(job.date, 'MM-dd-yyyy')}"></span><br>-->
+            Price: <span th:text="${product.price}"></span><br>
+            Image: <span><img th:src="${product.imageURL}" width="100px" hight="100px" alt="product-image"></span><br>
+
+            <div sec:authorize="hasAuthority('ADMIN')">
+            Image URL: <span th:text="${product.imageURL}"></span><br>
+            </div>
+
+            Active: <span th:text="${product.active}"></span><br><br>
+
+        </div>
+    </div>
+</div>
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<!--Footer-->
+<div th:insert="base :: footer"></div>
+<br><br><br><br><br><br><br><br><br><br><br>
+<!--Footer-->
+</body>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</html>

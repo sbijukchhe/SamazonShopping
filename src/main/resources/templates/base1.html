@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">-->
+    <title>Job List</title>
+</head>
+<body>
+
+<div th:fragment="navbar">
+    <nav class="navbar navbar-expand-lg navbar-light"style="background-color: orangered" th:fragment="main-navbar" >
+        <a class="navbar-brand text-white"  href="/">samazon</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <!--        Search bar-->
+
+        <form class="form-inline my-2 my-lg-0" th:action="@{/processsearch}" method="post">
+            <select class="form-control mr-sm-2" name ="category">
+                <option value ="1">Product Name</option>
+                <option value ="2">Product Details</option>
+            </select><br>
+            <input class="form-control mr-sm-2" type="text" placeholder="Search.." aria-label="Search" name="search">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+        </form>
+
+        <!--        Added-->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!--</nav>-->
+
+            <ul class="nav navbar-nav ml-auto">
+
+                <!-- the Username will display if the user is authenticated (logged in) otherwise the link to login will show.-->
+
+                <li sec:authorize="isAuthenticated()" class="nav-link " style="color: yellow" th:inline="text">
+                    Welcome [[${#authentication.name}]]!
+                </li>
+
+                <li class="nav-item">
+                    <a sec:authorize="!isAuthenticated()" class="nav-link text-white" href="/login">Login</a>
+                </li>
+
+                <li class="nav-item">
+                    <a sec:authorize="!isAuthenticated()" class="nav-link text-white" href="/register">Register</a>
+                </li>
+
+
+
+                <li class="nav-item text-light">
+                    <a class="nav-link text-white" href="/">Home</a>
+                </li>
+
+
+                <li sec:authorize="isAuthenticated()" class="nav-item text-light">
+                    <a class="nav-link text-white" href="/add">Add product</a>
+                </li>
+
+                <!--<li sec:authorize="isAuthenticated()" class="nav-item text-light">
+                    <a class="nav-link text-white" href="/list">Product Details</a>
+                </li>-->
+                <li sec:authorize="isAuthenticated()" class="nav-item text-light">
+                    <a class="nav-link text-white" href="/list">Product List</a>
+                </li>
+                <li sec:authorize="isAuthenticated()" class="nav-item text-light">
+                    <a class="nav-link text-white" href="/userlist">User List</a>
+                </li>
+
+                <li sec:authorize="isAuthenticated()" class="nav-item text-light">
+                    <a class="nav-link text-white" href="/">Check out</a>
+                </li>
+                <li class="nav-item">
+                    <a sec:authorize="isAuthenticated()" class="nav-link text-white" href="/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+
+
+    </nav>
+</div>
+
+
+<!--Footer-->
+<div th:fragment="footer">
+    <div class="alert alert" style="background-color: orangered" role="alert">
+        <div class="row justify-content-rt-center">
+            <div class="col" style="color: white">
+                &copy;2019
+            </div>
+            <div class="col">
+                <!--Facebook-->
+                <button type="button" class="btn btn-fb text-white" onClick="parent.location='https://www.facebook.com/'">
+                    <i class="fab fa-facebook-f pr-1 text-white"></i> Facebook</button>
+                <!--Twitter-->
+                <button type="button" class="btn btn-tw text-white" onClick="parent.location='https://www.twitter.com/'">
+                    <i class="fab fa-twitter pr-1 text-white" ></i> Twitter</button>
+                <!--Google +-->
+                <button type="button" class="btn btn-gplus text-white" onClick="parent.location='https://www.google.com/'">
+                    <i class="fab fa-google-plus-g pr-1 text-white"></i> Google +</button>
+                <!--Linkedin-->
+                <button type="button" class="btn btn-li text-white" onClick="parent.location='https://www.linkedin.com/'">
+                    <i class="fab fa-linkedin-in pr-1 text-white"></i> Linkedin</button>
+                <!--Instagram-->
+                <button type="button" class="btn btn-ins text-white" onClick="parent.location='https://www.instagram.com/'">
+                    <i class="fab fa-instagram pr-1 text-white"></i> Instagram</button>
+                <!--Pinterest-->
+                <button type="button" class="btn btn-pin text-white" onClick="parent.location='https://www.pinterest.com/'">
+                    <i class="fab fa-pinterest pr-1 text-white"></i> Pinterest</button>
+            </div>
+        </div>
+        <p style="color: white">Samazon Shopping Site.......</p>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

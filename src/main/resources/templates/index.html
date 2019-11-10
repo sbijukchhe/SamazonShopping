@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:sec1="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:w3="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+
+    <title>Index</title>
+</head>
+<body>
+
+<!--Navbar-->
+<div th:insert="base :: navbar"></div>
+<br>
+
+<!--<h4>Please Sign In To Continue<a href="/secure"></a></h4>-->
+
+<section class="ftco-section ftco-no-pb ftco-no-pt bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(../resources/static/images/about.jpg);">
+                <a href="https://vimeo.com/45830194" class="icon popup-vimeo d-flex justify-content-center align-items-center">
+                    <span class="icon-play"></span>
+                </a>
+            </div>
+            <div class="col-md-7 py-5 wrap-about pb-md-5 ftco-animate">
+                <div class="heading-section-bold mb-4 mt-md-5">
+                    <div class="ml-md-0">
+
+                        <h2 class="mb-4">Welcome to Magneto Megafoods Samazon Shopping website</h2>
+                    </div>
+                </div>
+                <div class="pb-md-5">
+                    <p>A Process and a Promise
+                        We are dedicated to crafting clean, high quality, award-winning supplements, and promise we’ll always be transparent about what is in- or not in- them. That’s “the MegaFood Way”. When you learn about our products you’ll find:</p>
+
+                    <p> By “clean” we mean that our products feature the nourishment you’re looking for and you can be confident that our products are tested free of ingredients you told us you prefer to avoid: soy, dairy, and gluten. Most of our products are certified non-GMO Project Verified. We test all of our products for over 125 herbicides and pesticides and our entire supplement line is tested Glyphosate Residue Free. We guarantee this with the nine certifications for purity & safety clearly displayed on our labels and shoppable product pages so you know exactly what you’re taking.
+                        An obsession with quality with all our products</p>
+                    <p>A process driven by the highest standards that we hold suppliers, farmers, co-manufacturers, and ourselves to</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="hero-wrap hero-bread" >
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <p class="breadcrumbs"><span class="mr-2"><a href="index.html"></a></span> <span></span></p>
+                <h1 class="mb-0 bread">NUTRITION WITH AMBITION™</h1>
+
+                <p> We are a vitamin and supplement company working toward a world where everyone is truly
+                    nourished.</p>
+
+                <p>Together with our trusted farm partners, we are a force for good. From creating premium
+                    products with radical transparency, to committing to organic and regenerative agriculture, we
+                    are nourishing our world from the roots by filling nutritional gaps and revolutionizing a
+                    broken farming system.</p>
+
+                <p>We harness a unique process built from a strong history—crafting our supplements with real
+                    food plus added nutrients because we believe our bodies recognize real food.</p>
+
+                <p>And as a B Corporation, we’re also cultivating a community of transparent suppliers, working
+                    to enable a thriving workforce, and supporting businesses, communities, and programs that
+                    share these same goals and values. All for a healthier, more sustainable and more resilient
+                    future.</p>
+
+                <p>That’s Nutrition with Ambition™. Are you ready to join us?</p>
+                <p><a href="/list" class="btn btn-success">Shop now</a></p>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<section class="ftco-section bg-light">
+    <div class="container">
+        <div class="row no-gutters ftco-services">
+            <div class="col-lg-3 text-center d-flex align-self-stretch ftco-animate">
+                <div class="media block-6 services mb-md-0 mb-4">
+                    <div class="icon bg-color-1 active d-flex justify-content-center align-items-center mb-2">
+                        <span class="flaticon-shipped"></span>
+                    </div>
+                    <div class="media-body">
+                        <h3 class="heading">Free Shipping</h3>
+                        <span>On order over $50</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 text-center d-flex align-self-stretch ftco-animate">
+                <div class="media block-6 services mb-md-0 mb-4">
+                    <div class="icon bg-color-2 d-flex justify-content-center align-items-center mb-2">
+                        <span class="flaticon-diet"></span>
+                    </div>
+                    <div class="media-body">
+                        <h3 class="heading">Always Fresh</h3>
+                        <span>Product well package</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 text-center d-flex align-self-stretch ftco-animate">
+                <div class="media block-6 services mb-md-0 mb-4">
+                    <div class="icon bg-color-3 d-flex justify-content-center align-items-center mb-2">
+                        <span class="flaticon-award"></span>
+                    </div>
+                    <div class="media-body">
+                        <h3 class="heading">Superior Quality</h3>
+                        <span>Quality Products</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 text-center d-flex align-self-stretch ftco-animate">
+                <div class="media block-6 services mb-md-0 mb-4">
+                    <div class="icon bg-color-4 d-flex justify-content-center align-items-center mb-2">
+                        <span class="flaticon-customer-service"></span>
+                    </div>
+                    <div class="media-body">
+                        <h3 class="heading">Support</h3>
+                        <span>24/7 Support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br>
+<!--Footer-->
+<div th:insert="base :: footer"></div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

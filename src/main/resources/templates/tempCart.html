@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:sec1="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:w3="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8" >
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+
+    <title>Cart</title>
+</head>
+<body>
+<div th:insert="base :: navbar"></div>
+<h2>Cart</h2>
+
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Description</th>
+        <th scope="col">Image</th>
+        <th scope="col">Available</th>
+        <th scope="col">Actions</th>
+    </tr>
+    </thead>
+
+    <tr th:each="product : ${products}">
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.price}"></td>
+        <td th:text="${product.description}"></td>
+        <td><img th:src="${product.imageURL}" width="50px" hight="50px" alt="product-image"></td>
+        <td th:text="${product.active}"></td>
+        <td>
+            <a th:href="@{/detail/{id}(id=${product.productId})}" type="button" class="btn btn-outline-success">Details</a>
+        </td>
+    </tr>
+
+</table>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
+

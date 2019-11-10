@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/Style.css" type="text/css">
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+    <title>Registration Page</title>
+</head>
+<body>
+
+<!--Navbar-->
+<div th:insert="base :: navbar"></div>
+<br>
+
+
+<div class="container">
+
+    <div class="row justify-content-md-center">
+        <div class="col">
+        </div>
+        <div class="col-8">
+            <div class="alert alert-dark text-center" style="background-color: lightsalmon" role="alert">
+                <h2> Create a New Account</h2>
+                <p>It's quick and easy.</p>
+            </div>
+        </div>
+        <div class="col">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">
+        </div>
+        <div class="col-8">
+            <form autocomplete="off" action="#" th:action="@{/register}" th:object="${user}" method ="post">
+                <div class="form-row">
+                    <div class="form-group col-md">
+                        <label for="firstName">First name</label><mark><strong>
+                        <span th:if ="${#fields.hasErrors('firstName')}"
+                              th:errors="*{firstName}">First Name Error</span></strong></mark>
+                        <input type ="text" class="form-control" id="firstName" placeholder="First name" th:field="*{firstName}" /><br />
+                    </div>
+                    <div class="form-group col-md">
+                        <label for="lastName">Last name</label><mark><strong>
+                        <span th:if ="${#fields.hasErrors('lastName')}"
+                              th:errors="*{lastName}">Last Name Error</span></strong></mark>
+                        <input type ="text" class="form-control" id="lastName" placeholder="Last Name" th:field="*{lastName}" /><br />
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="position">Position</label><mark><strong>
+                    <!--                    Added-->
+
+                    <span th:if ="${#fields.hasErrors('position')}"
+                          th:errors="*{position}">Position Error</span></strong></mark>
+                    <input type ="text" class="form-control" id="position" placeholder="Position" th:field="*{position}" /> <br />
+                </div>
+                <div class="form-group ">
+                    <label for="email">Email</label><mark><strong>
+                    <span th:if ="${#fields.hasErrors('email')}"
+                          th:errors="*{email}">Email Error</span></strong></mark>
+                    <input type ="text" class="form-control" id="email" placeholder="Email" th:field="*{email}" /> <br />
+                </div>
+                <div class="form-group ">
+                    <label for="email">Username</label><mark><strong>
+                    <span th:if ="${#fields.hasErrors('username')}"
+                          th:errors="*{username}">Username Error</span></strong></mark>
+                    <input type ="text" class="form-control" id="username" placeholder="Username" th:field="*{username}" /> <br />
+                </div>
+                <div class="form-group ">
+                    <label for="password">Password</label><mark><strong>
+                    <span th:if ="${#fields.hasErrors('password')}"
+                          th:errors="*{password}">Password Error</span></strong></mark>
+                    <input type ="password" class="form-control" id="password" placeholder="Password" th:field="*{password}" /><br />
+                </div>
+                <small class="form-text text-muted">By clicking Sign Up, you agree to our Terms, Data
+                    Policy and Cookies Policy. You may receive SMS Notifications from us and can opt out any time
+                </small>
+                <br>
+                <button type="submit" class="btn btn-success btn-lh">Sign up</button>
+
+
+            </form>
+
+        </div>
+        <div class="col">
+
+        </div>
+    </div>
+</div>
+
+
+<br><br>
+<!--Footer-->
+<div th:insert="base :: footer"></div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</html>

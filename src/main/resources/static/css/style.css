@@ -1,0 +1,10 @@
+
+body{
+  background-image: url(../images/magnetobg2.jpg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-weight: 800;
+  font-family: Arial, Helvetica, sans-serif;
+}
